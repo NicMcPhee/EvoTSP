@@ -14,6 +14,8 @@ function MinnesotaTour() {
 
 	this.tourCoords = shuffle(this.tourCoords);
 
+	// I should move the code that creates the request from a list
+	// of locations into the evotsp class, or a new geo-location class.
 	var index;
 	this.start = this.tourCoords[0];
 	this.end = this.tourCoords[this.tourCoords.length-1];
