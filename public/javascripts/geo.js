@@ -1,4 +1,13 @@
 function MAX_CITIES() {
+	// This limit is imposed by Google Maps. You can't have more than 8 waypoints
+	// unless you're a "premium" customer (when you can have 23). So we're currently
+	// limited to 8 cities plus the start and end cities which, for TSP, have to be
+	// the same. This means we have a maximum total of 9 cities.
+	// 
+	// I'm ot yet clear
+	// on whether I can hack around this by making multiple requests and displaying
+	// them all, or whether this will fundamentally limit what the size of a tour
+	// that we can work with.
 	return 9;
 }
 
