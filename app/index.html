@@ -14,12 +14,15 @@
 	src="../public/javascripts/evotsp.js">
 </script>
 <script type="text/javascript"
+	src="../public/javascripts/geo.js">
+</script>
+<script type="text/javascript"
 	src="../public/javascripts/minnesota.js">
 </script>
 <script type="text/javascript">
   function initialize() {
 	var minnesota = new MinnesotaTour();
-	var tourCoords = minnesota.tourCoords;
+	var cities = minnesota.cities;
 	var index;
 			
     var myOptions = {
@@ -36,9 +39,13 @@
     var map = new google.maps.Map(document.getElementById("map_canvas"),
         myOptions);
 
+	var directionsDisplay = new google.maps.DirectionsRenderer();
+	directionsDisplay.setMap(map);
+	var directionsService = new google.maps.DirectionsService();
+
 	var tour;
 	tour = new google.maps.Polygon({
-		paths: tourCoords,
+		paths: cities,
 		strokeColor: "#FF00FF",
 		strokeOpacity: 0.8,
 		strokeWeight: 4,
@@ -48,24 +55,23 @@
 	
 	tour.setMap(map);
 	
-	var tourRequest = {
-		origin: minnesota.start,
-		destination: minnesota.start,
-		waypoints: minnesota.wayPts,
-		provideRouteAlternatives: false,
-		travelMode: google.maps.TravelMode.DRIVING,
-		unitSystem: google.maps.UnitSystem.IMPERIAL
-	}
+	try {
+		var tourRequest = make_tour_request(cities);
 	
-	var directionsDisplay = new google.maps.DirectionsRenderer();
-	directionsDisplay.setMap(map);
-	
-	var directionsService = new google.maps.DirectionsService();
-	directionsService.route(tourRequest, function(result, status) {
-		if (status == google.maps.DirectionsStatus.OK) {
-			directionsDisplay.setDirections(result);
+		directionsService.route(tourRequest, function(result, status) {
+			if (status == google.maps.DirectionsStatus.OK) {
+				directionsDisplay.setDirections(result);
+			} else {
+				alert("Problem generating route for your tour: " + status)
+			}
+		});
+    } catch(er) {
+		if (er == "MAX CITIES EXCEEDED") {
+			alert("Your route has too many cities");
+		} else {
+			alert("Problem generating route for your tour: " + status)
 		}
-	});
+    }
   }
 
 </script>

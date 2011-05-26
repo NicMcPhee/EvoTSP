@@ -5,22 +5,19 @@ function MinnesotaTour() {
 	var minneapolis = new google.maps.LatLng(44.979965,-93.263836);
 	var pipestone = new google.maps.LatLng(43.998582,-96.312812);
 	var rochester = new google.maps.LatLng(44.021631,-92.469899);
+	var internationalfalls = new google.maps.LatLng(48.596748,-93.409286);
+	var roseau = new google.maps.LatLng(48.846093,-95.762766);
+	var grandmarais = new google.maps.LatLng(47.750447,-90.334273);
+	var ely = new google.maps.LatLng(47.903237,-91.867087);
+	var bemidji = new google.maps.LatLng(47.473611,-94.880278);
+	var marshall = new google.maps.LatLng(44.446944,-95.788333);
 	
 	this.center=morris;
 
-	this.tourCoords = [
-		morris, fargo, duluth, minneapolis, pipestone, rochester
+	this.cities = [
+		morris, fargo, duluth, minneapolis, pipestone, rochester, 
+		internationalfalls, roseau, grandmarais // , ely // , bemidji, marshall
 	];
 
-	this.tourCoords = shuffle(this.tourCoords);
-
-	// I should move the code that creates the request from a list
-	// of locations into the evotsp class, or a new geo-location class.
-	var index;
-	this.start = this.tourCoords[0];
-	this.end = this.tourCoords[this.tourCoords.length-1];
-	this.wayPts = new Array();
-	for (index=1; index<this.tourCoords.length; ++index) {
-		this.wayPts.push({location: this.tourCoords[index], stopover:true});
-	}
+	this.cities = shuffle(this.cities);
 }
