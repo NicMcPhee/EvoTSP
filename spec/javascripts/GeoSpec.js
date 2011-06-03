@@ -40,4 +40,7 @@ describe('make_tour_request', function() {
 	// make_tour_request that allows me to specify values for these,
 	// and then test that they default to something like metric and
 	// driving.
+	it("should use driving by default", function() {
+		expect(request.travelMode).toBe(google.maps.TravelMode.DRIVING);
+	});
 });
