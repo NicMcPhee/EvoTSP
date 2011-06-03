@@ -14,9 +14,7 @@ describe("MinnesotaTour", function() {
   describe("cities", function() {
 	it("should be instances of Google's LatLng", function() {
 		for (x in cities) {
-			if (x.hasOwnProperty(minnesota.cities)) {
-				expect(x).toBeLatLng();
-			}
+			expect(cities[x]).toBeLatLng();
 		}		
 	});
   });
