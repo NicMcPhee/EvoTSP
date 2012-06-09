@@ -18,7 +18,7 @@ function make_tour_request(cities) {
 	}
 	var index;
 	var start = cities[0];
-	var end = cities[numCities-1];
+	// var end = cities[numCities-1];
 	var wayPts = new Array();
 	for (index=1; index<numCities; ++index) {
 		wayPts.push({location: cities[index], stopover:true});
