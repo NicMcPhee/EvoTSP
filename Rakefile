@@ -1,5 +1,6 @@
 
 begin
+  require 'rails/railtie'
   require 'jasmine'
   load 'jasmine/tasks/jasmine.rake'
 rescue LoadError
