@@ -1,6 +1,1 @@
 A simple JavaScript app that demonstrates a simple evolutionary approach to solving Traveling Salesman Problems (TSPs). The evolutionary approach used is by no means state of the art, but is intended to be a demonstration of the power of even a simple evolutionary algorithm (EA) on hard combinatorial optimization problems.
-
-Nic McPhee
-mcphee@morris.umn.edu
-Division of Science and Mathematics
-University of Minnesota, Morris
