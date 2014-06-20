@@ -24,18 +24,18 @@
 	var minnesota = new MinnesotaTour();
 	var cities = minnesota.cities;
 	var index;
-			
+    
+    // I used to set the center in myOptions, but that caused a
+    // redraw when the tour was drawn, presumably because Google
+    // Maps centers on the tour, overriding my centering. I'm a
+    // little worried that failure to control the centering may
+    // cause the map to jitter during evolution, but we'll deal
+    // with that if/when we get to it.
     var myOptions = {
       zoom: 7,
-      center: minnesota.center,
       mapTypeId: google.maps.MapTypeId.ROADMAP
     };
 
-	// We end up with a re-draw somewhere that it would be nice to
-	// make go away. I think the problem is that we draw the map here
-	// when we create it, and then re-draw it when we draw the route
-	// we get back from Google later. I'm not sure how to fix that, but
-	// it seems that we should be able to.
     var map = new google.maps.Map(document.getElementById("map_canvas"),
         myOptions);
 
