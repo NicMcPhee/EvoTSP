@@ -11,12 +11,15 @@ function MinnesotaTour() {
 	var ely = new google.maps.LatLng(47.903237,-91.867087);
 	var bemidji = new google.maps.LatLng(47.473611,-94.880278);
 	var marshall = new google.maps.LatLng(44.446944,-95.788333);
+    var brainerd = new google.maps.LatLng(46.3514699,-94.1948972);
+    var grandrapids = new google.maps.LatLng(47.228156,-93.5350818);
+    var moorhead = new google.maps.LatLng(46.8657639,-96.7363173);
 	
 	this.center=morris;
 
 	this.cities = [
-		morris, fargo, duluth, minneapolis, pipestone, rochester, 
-		internationalfalls, roseau, grandmarais // , ely // , bemidji, marshall
+		morris, moorhead, grandrapids, bemidji, pipestone, rochester, 
+		internationalfalls, roseau, grandmarais
 	];
 
 	this.cities = shuffle(this.cities);
